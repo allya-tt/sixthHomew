@@ -22,11 +22,9 @@ public class ReportIssuesTests extends BaseTest{
         String idi = driver.findElement(By.xpath("//table[@id='buglist']/tbody/tr[1]/td[@class='column-id']/a")).getText();
         Thread.sleep(2000);
         mantisSite.getViewIssuesPage().delete();
-//        Assertions.assertNotEquals(idi, driver.findElement(By.xpath("//table[@id='buglist']/tbody/tr[1]/td[@class='column-id']/a")).getText());
         softAssert.assertThat(idi).isNotEqualTo(driver.findElement(By.xpath("//table[@id='buglist']/tbody/tr[1]/td[@class='column-id']/a")).getText());
         softAssert.assertAll();
         Thread.sleep(2000);
-//
 
 
     }
