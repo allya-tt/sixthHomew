@@ -17,12 +17,12 @@ public class ReportIssuesTests extends BaseTest{
         softAssert.assertThat(mantisSite.getMainPage().getUserName()).isEqualTo("admin");
         mantisSite.getMainPage().goToReportIssuePage();
         Thread.sleep(2000);
-        mantisSite.getReportIssuePage().requiredFields("Summary on September 10th", "Description on September 10th");
+        mantisSite.getReportIssuePage().createIssueWithOnlyRequiredFields("Summary on September 10th", "Description on September 10th");
         mantisSite.getReportIssuePage().submit();
-        String idi = driver.findElement(By.xpath("//table[@id='buglist']/tbody/tr[1]/td[@class='column-id']/a")).getText();
+        String id = mantisSite.getViewIssuesPage().getIssueNumberText();
         Thread.sleep(2000);
-        mantisSite.getViewIssuesPage().delete();
-        softAssert.assertThat(idi).isNotEqualTo(driver.findElement(By.xpath("//table[@id='buglist']/tbody/tr[1]/td[@class='column-id']/a")).getText());
+        mantisSite.getViewIssuesPage().deleteLastIssue();
+        softAssert.assertThat(id).isNotEqualTo(mantisSite.getViewIssuesPage().getIssueNumberText());
         softAssert.assertAll();
         Thread.sleep(2000);
 

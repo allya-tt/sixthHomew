@@ -39,7 +39,7 @@ public class ReportIssuePage {
         descriptionField.sendKeys(message);
     }
 
-    public void requiredFields(String messageSummary, String messageDescription) {
+    public void createIssueWithOnlyRequiredFields(String messageSummary, String messageDescription) {
         summaryField.sendKeys(messageSummary);
         descriptionField.sendKeys(messageDescription);
     }
